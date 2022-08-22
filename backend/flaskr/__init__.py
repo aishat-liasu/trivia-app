@@ -42,6 +42,10 @@ def create_app(test_config=None):
   def get_categories():
     categories = Category.query.order_by(Category.id).all()
     categoryList = [category.format() for category in categories]
+    categoryObj = {}
+
+    for item in categoryList:
+      categoryObj[item["id"]] = item["type"]
 
     if len(categories) == 0:
       abort(404)
@@ -49,7 +53,7 @@ def create_app(test_config=None):
     return jsonify(
       {
           "success": True,
-          "categories": categoryList,
+          "categories": categoryObj,
       }
     )
 
@@ -238,6 +242,60 @@ def create_app(test_config=None):
   one question at a time is displayed, the user is allowed to answer
   and shown whether they were correct or not. 
   '''
+
+  def return_questions(category_id):
+    if category_id == 0:
+      selection = Question.query.all()
+      current_questions, _ = paginate_questions(request, selection)
+      return current_questions
+    else:
+      selection = Question.query.filter(Question.category == category_id)
+      current_questions, _ = paginate_questions(request, selection)
+      return current_questions
+
+
+  @app.route("/quizzes", methods=["POST"])
+  def generate_quiz():
+    body = request.get_json()
+
+    prev_questions = body.get("previous_questions", [])
+    category = body.get("quiz_category", None)
+   
+    category_questions = return_questions(category["id"])
+    question_ids = [question["id"] for question in category_questions]
+    
+    print(question_ids)
+
+    if len(prev_questions) != len(question_ids):
+    
+      min_limit = min(question_ids)
+      max_limit = max(question_ids)
+      generated_number = min_limit
+    
+      while generated_number in prev_questions or generated_number not in question_ids:
+        generated_number = random.randint(min_limit, max_limit+1)
+        print(generated_number)
+
+      print(generated_number)
+
+      next_question = Question.query.filter(Question.id == generated_number).one_or_none()
+      formatted_next_question = next_question.format()
+
+      return jsonify(
+          {
+              "success": True,
+              "question": formatted_next_question,
+          }
+      )
+
+    else:
+      return jsonify(
+          {
+              "success": True,
+              "question": "",
+          }
+      ) 
+
 
   '''
   @TODO: 
