@@ -12,8 +12,8 @@ The web application:
 
 ## About the Stack
 
-Backend: Python, Flask
-Frontend: React (Class-based Components), jQuery
+- Backend: Python, Flask
+- Frontend: React (Class-based Components), jQuery
 
 ### Pre-requisites and Local Development 
 Developers using this project should already have Python3 (Preferably 3.7 or 3.8), pip and node installed on their local machines.
@@ -22,7 +22,7 @@ Developers using this project should already have Python3 (Preferably 3.7 or 3.8
 
 All the required dependenices are included in the requirements file to run the backend service. It is highly recommended to use a virtual environment whenever using Python for projects. 
 
-Assuimng you are in the root folder, to run the application run the following commands: 
+Assuming you are in the root folder, to run the application run the following commands: 
 
 ```
 cd backend
@@ -41,7 +41,7 @@ The application is run on `http://127.0.0.1:5000/` by default and is a proxy in 
 
 #### Frontend
 
-The complete React frontend consumes data from the Flask server. 
+The frontend React consumes data from the Flask server. 
 From the frontend folder, run the following commands to start the client: 
 
 ```
@@ -207,7 +207,6 @@ The API will return three error types when requests fail:
 - Sample: `curl http://127.0.0.1:5000/api/v1.0/questions -X POST -H "Content-Type: application/json" -d '{"answer": "3", "category": 1, "difficulty": 2, "question": "What is the recommended number of times to brush one's teeth in a day?"}'`
 
 ```
-
 {
     "created": 31,
     "questions": [
@@ -285,7 +284,6 @@ The API will return three error types when requests fail:
     "success": true,
     "total_questions": 21
 }
-
 ```
 
 #### POST `/api/v1.0/questions`
@@ -294,7 +292,6 @@ The API will return three error types when requests fail:
 - Sample: `curl http://127.0.0.1:5000/api/v1.0/questions -X POST -H "Content-Type: application/json" -d '{"searchTerm": "body"}'`
 
 ```
-
 {
     "questions": [
         {
@@ -322,7 +319,6 @@ The API will return three error types when requests fail:
     "success": true,
     "total_questions": 20
 }
-
 ```
 
 #### GET `/api/v1.0/categories/{category_id}/questions`
@@ -331,7 +327,6 @@ The API will return three error types when requests fail:
 - Sample: `curl http://127.0.0.1:5000/api/v1.0/categories/2/questions`
 
 ```
-
 {
     "current_category": 2,
     "questions": [
@@ -367,7 +362,6 @@ The API will return three error types when requests fail:
     "success": true,
     "total_questions": 4
 }
-
 ```
 
 #### POST `/api/v1.0/quizzes`
@@ -386,15 +380,15 @@ The API will return three error types when requests fail:
         "question": "Which Dutch graphic artist–initials M C was a creator of optical illusions?"
     }
 }
-
 ```
 
-## Deployment N/A
+## Deployment 
+N/A
 
 ## Authors
 Aishat
 
 ## Acknowledgements 
-The awesome team at Udacity 
+Udacity 
 
 
