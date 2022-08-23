@@ -101,7 +101,7 @@ def create_app(test_config=None):
           "success": True,
           "questions": current_questions,
           "total_questions": total_questions,
-          "current_category": "History",
+          "current_category": "Science",
           "categories": categoryDict
       }
     )
@@ -131,7 +131,7 @@ def create_app(test_config=None):
       )
 
     except:
-        abort(422)
+      abort(422)
 
   '''
   Endpoint to POST a new question, 
@@ -147,13 +147,9 @@ def create_app(test_config=None):
   def create_question():
     body = request.get_json()
 
-    if body is None or len(body.keys()) != 4:
+    if body is None or len(body.keys()) < 1:
       abort(400)
 
-    new_question = body.get("question", None)
-    new_answer = body.get("answer", None)
-    category = body.get("category", None)
-    difficulty = body.get("difficulty", None)
     search = body.get("searchTerm", None)
 
     try:
@@ -171,13 +167,18 @@ def create_app(test_config=None):
           }
         )
       else:
+        if body["question"] is None or body["answer"] is None or body["category"] is None or body["difficulty"] is None:
+          abort(400)
+
+        new_question = body.get("question", None)
+        new_answer = body.get("answer", None)
+        category = body.get("category", None)
+        difficulty = body.get("difficulty", None)
         question = Question(question=new_question, answer=new_answer,category=category, difficulty=difficulty)
         question.insert()
 
         selection = Question.query.order_by(Question.id).all()
         current_questions, total_questions = paginate_questions(request, selection)
-
-        print('here: ',question)
 
         return jsonify(
           {
