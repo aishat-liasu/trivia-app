@@ -95,7 +95,7 @@ The API will return three error types when requests fail:
 - Sample: `curl http://127.0.0.1:5000/api/v1.0/categories`
 
 ```
-    {
+{
     "categories": {
         "1": "Science",
         "2": "Art",
@@ -305,7 +305,6 @@ The API will return three error types when requests fail:
     "success": true,
     "total_questions": 1
 }
-
 ```
 
 #### DELETE `/api/v1.0/questions/{question_id}`
