@@ -1,27 +1,40 @@
 .question-view {
   display: flex;
   flex-direction: row;
+  height: 80vh;
 }
 
-.categories-list {
+.sidebar {
   flex-basis: 25%;
   flex-shrink: 2;
 }
 
-.categories-list > form {
+.sidebar > form {
   width: 60%;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.category-item:hover {
+  cursor: pointer;
 }
 
 .questions-list {
   flex-basis: 75%;
   text-align: center;
+  overflow-y: scroll; 
 }
 
 .Question-holder {
   padding: 10px 20px;
   border: 2px black solid;
   text-align: left;
-  margin: 7px;
+  margin: 0 5px 15px 5px;
 }
 
 .Question-status {
@@ -31,6 +44,7 @@
   width: 200px;
   align-items: center;
   justify-content: space-between;
+  margin-top: 10px;
 }
 
 .Question {
@@ -53,17 +67,26 @@
   margin-left: 0px !important;
 }
 
+.pagination-menu {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
 span.page-num {
-  margin: 5px;
-  padding-bottom: 50px;
-  /* color: blue; */
+  margin: 0 10px;
   font-weight: bolder;
-  text-decoration: underline;
   font-size: 16px;
+  padding: 5px;
+}
+
+.pagination-menu .page-num:hover {
+  cursor: pointer;
 }
 
 span.page-num.active {
-  color: blue;
+  color: white;
+  background-color: blue
 }
 
 img.category {
@@ -71,5 +94,11 @@ img.category {
 }
 
 img.delete {
-  width: 20px;
+  width: 24px;
+  cursor: pointer;
+  padding: 2px;
+}
+
+img.delete:hover {
+  border: 1px solid black;
 }
