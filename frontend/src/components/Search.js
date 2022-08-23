@@ -12,7 +12,7 @@ class Search extends Component {
 
   handleInputChange = () => {
     this.setState({
-      query: this.search.value
+      query: this.search.value.trim()
     })
   }
 
