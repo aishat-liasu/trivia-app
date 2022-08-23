@@ -15,6 +15,7 @@ class QuestionView extends Component {
       categories: {},
       currentCategory: null,
     }
+    this.BASE_URL = '/api/v1.0'
   }
 
   componentDidMount() {
@@ -23,7 +24,7 @@ class QuestionView extends Component {
 
   getQuestions = () => {
     $.ajax({
-      url: `/questions?page=${this.state.page}`, //TODO: update request URL
+      url: `${this.BASE_URL}/questions?page=${this.state.page}`,
       type: "GET",
       success: (result) => {
         this.setState({
@@ -59,7 +60,7 @@ class QuestionView extends Component {
 
   getByCategory= (id) => {
     $.ajax({
-      url: `/categories/${id}/questions`, //TODO: update request URL
+      url: `${this.BASE_URL}/categories/${id}/questions`, 
       type: "GET",
       success: (result) => {
         this.setState({
@@ -76,7 +77,7 @@ class QuestionView extends Component {
 
   submitSearch = (searchTerm) => {
     $.ajax({
-      url: `/questions`, //TODO: update request URL
+      url: `${this.BASE_URL}/questions`, 
       type: "POST",
       dataType: 'json',
       contentType: 'application/json',
@@ -102,7 +103,7 @@ class QuestionView extends Component {
     if(action === 'DELETE') {
       if(window.confirm('are you sure you want to delete the question?')) {
         $.ajax({
-          url: `/questions/${id}`, //TODO: update request URL
+          url: `${this.BASE_URL}/questions/${id}`,
           type: "DELETE",
           success: (result) => {
             this.getQuestions();
