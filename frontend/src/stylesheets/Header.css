@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    flex-basis: 100%;
+    width: 100%;
+}
+
+.header h2 {
+    margin-bottom: 0;
+}
+
+.header-nav {
+    display: flex;
+    flex-basis: 100%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    padding: 10px 0;
+    margin: 0px 50px;
+
+}
+
+.header-nav ul {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin: 0;
+    padding: 0;;
+}
+
+.header-nav ul li {
+    margin: 0;
+    padding: 15px;
+}
+
+.header-nav ul li:hover {
+    cursor: pointer;
+}
+
+.header ul li:active {
+    border-bottom: 1px solid blue;
+}

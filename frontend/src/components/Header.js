@@ -10,12 +10,16 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="App-header">
-        <h1 onClick={() => {this.navTo('')}}>Udacitrivia</h1>
-        <h2 onClick={() => {this.navTo('')}}>List</h2>
-        <h2 onClick={() => {this.navTo('/add')}}>Add</h2>
-        <h2 onClick={() => {this.navTo('/play')}}>Play</h2>
-      </div>
+      <header className="header">
+        <nav className='header-nav'>
+        <h2 onClick={() => { this.navTo('') }}>Udacitrivia</h2>
+          <ul>
+            <li onClick={() => {this.navTo('')}}>List</li>
+            <li onClick={() => { this.navTo('/add') }}>Add</li>
+            <li onClick={() => { this.navTo('/play') }}>Play</li>
+          </ul>
+        </nav>
+      </header>
     );
   }
 }
