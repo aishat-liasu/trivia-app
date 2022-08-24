@@ -120,7 +120,9 @@ class QuestionView extends Component {
     return (
       <div className="question-view">
         <div className="sidebar">
-          <h2 onClick={() => {this.getQuestions()}}>Categories</h2>
+          {/* onClick={() => { this.getQuestions() }} */}
+          <Search submitSearch={this.submitSearch}/>
+          <h3>Filter questions by categories</h3>
           <ul className='categories-list'>
             {Object.keys(this.state.categories).map((id, ) => (
               <li key={id} onClick={() => {this.getByCategory(id)}} className='category-item'> 
@@ -129,10 +131,10 @@ class QuestionView extends Component {
               </li>
             ))}
           </ul>
-          <Search submitSearch={this.submitSearch}/>
+       
         </div>
         <div className="questions-list">
-          <h2>Questions</h2>
+          <h3>Questions</h3>
           {this.state.questions.map((q, ind) => (
             <Question
               key={q.id}

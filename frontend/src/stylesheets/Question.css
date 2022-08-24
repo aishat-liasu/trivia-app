@@ -1,43 +1,51 @@
 .question-view {
   display: flex;
   flex-direction: row;
-  height: 80vh;
+  height: calc(100vh - 100px);
 }
 
 .sidebar {
   flex-basis: 25%;
   flex-shrink: 2;
+  border-right: 1px solid grey;
+  text-align: center;
+  padding-top: 20px;
 }
 
-.sidebar > form {
-  width: 60%;
+.sidebar h3 {
+  font-weight: 500;
+  font-size: 18px;
 }
 
 .category-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .category-item:hover {
   cursor: pointer;
+  scale: 1.1;
 }
 
 .questions-list {
-  flex-basis: 75%;
+  padding:  20px 10px;
+  flex-basis: calc(75% - 50px);
   text-align: center;
-  overflow-y: scroll; 
+  overflow-y: scroll;
+
 }
 
-.Question-holder {
+.question-holder {
   padding: 10px 20px;
-  border: 2px black solid;
+  border: 2px solid grey;
+  border-radius: 10px;
   text-align: left;
-  margin: 0 5px 15px 5px;
+  margin: 0 0px 20px 0px;
 }
 
-.Question-status {
+.question-status {
   display: flex;
   flex-direction: row;
   height: 30px;
@@ -47,24 +55,20 @@
   margin-top: 10px;
 }
 
-.Question {
-  font-size: 21px;
+.question {
+  font-size: 20px;
   width: 100%;
 }
 
 .answer-holder {
-  font-size: 25px;
-  height: 25px;
-  margin: 5px 0px;
+  font-size: 18px;
+  margin-top: 5px;
+  font-style: italic;
 }
 
 .show-answer {
-  width: 100px;
-  margin-top: 5px;
-  background-color: dodgerblue;
-  color: white;
-  padding: 3px 5px;
-  margin-left: 0px !important;
+  width: fit-content;
+  margin-top: 20px;
 }
 
 .pagination-menu {
@@ -86,7 +90,7 @@ span.page-num {
 
 span.page-num.active {
   color: white;
-  background-color: blue
+  background-color: var(--darktaupe)
 }
 
 img.category {
