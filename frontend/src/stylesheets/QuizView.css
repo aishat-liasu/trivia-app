@@ -19,20 +19,6 @@
     color: dodgerblue;
 }
 
-.button {
-    width: 100px;
-    margin-top: 5px;
-    background-color: dodgerblue;
-    color: white;
-    padding: 3px 5px;
-    align-self: center;
-    cursor: pointer;
-}
-
-div.button {
-    margin-top: 20px;
-    margin-left: calc(50% - 50px);
-}
 
 .quiz-question {
     margin: 12px;
