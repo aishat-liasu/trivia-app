@@ -8,20 +8,16 @@
 
 .search-text {
     border: 1px solid var(--darktaupe);
+    border-radius: 5px 0 0 5px;
     padding: 10px;
     font-size: 12px;
 }
 
 input:focus {
-    border: 2px solid rgb(203, 203, 225);
-    border: 0;
-}
-
-.search-text:focus-visible {
-    border: 2px solid rgb(203, 203, 225)
+    outline: none;
+    border: 2px solid rgb(161, 161, 249);
 }
 
 .search-button {
     border-radius: 0 5px 5px 0;
-    border: 1px solid var(--darktaupe);
 }
