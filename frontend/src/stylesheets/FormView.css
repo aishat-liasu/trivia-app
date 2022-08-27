@@ -1,7 +1,42 @@
-.form-view > label {
-  padding: 0px 0px 10px;
+
+
+.add-page {
+  margin: 50px auto 0;
+  display: flex;
+  flex-direction: column;
 }
 
-#add-form {
-  text-align: center;
+.add-page h3 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.add-question-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.add-question-form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  min-width: 400px;
+  max-width: 500px;
+}
+
+.add-question-form span {
+  margin-bottom: 5px;
+}
+
+.add-question-form input , .add-question-form select {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid var(--darktaupe);
+}
+
+.add-question-form input:focus, .add-question-form select:focus {
+  outline: none;
+  border: 2px solid var(--darktaupe)
 }
