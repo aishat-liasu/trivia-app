@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import { Link, NavLink } from 'react-router-dom';
+
+
 import '../stylesheets/Header.css';
+
 
 class Header extends Component {
 
-  navTo(uri){
-    window.location.href = window.location.origin + uri;
+  activeStyle =  {
+    backgroundColor: '#5D599B',
+    borderRadius: '5px',
+    color: '#fff'
   }
+
 
   render() {
     return (
       <header className="header">
         <nav className='header-nav'>
-        <h2 onClick={() => { this.navTo('') }}>Udacitrivia</h2>
+        <h2>Udacitrivia</h2>
           <ul>
-            <li onClick={() => {this.navTo('')}}>List</li>
-            <li onClick={() => { this.navTo('/add') }}>Add</li>
-            <li onClick={() => { this.navTo('/play') }}>Play</li>
+            <li><NavLink to='/' exact activeStyle={this.activeStyle}
+               >List</NavLink></li>
+            <li><NavLink to='/add' activeStyle={this.activeStyle}
+            >Add</NavLink></li>
+            <li><NavLink to='/play' activeStyle={this.activeStyle}>Play</NavLink></li>
+
           </ul>
         </nav>
       </header>
