@@ -33,12 +33,11 @@ p {
 
 ul {
   list-style-type: none;
-  padding-inline-start: 0px;
+  padding: 0px;
 }
 
 li {
   text-align: center;
-  margin: 5px 0px;
 }
 
 form {
@@ -48,11 +47,28 @@ form {
 }
 
 .button {
-  background-color: #865b66;
+  background-color: var(--lightpurple);
   color: white;
   align-self: center;
   cursor: pointer;
   padding: 10px 15px;
   border-radius: 5px;
   border: 0;
+}
+
+.button:hover {
+  background-color: var(--purple);
+
+}
+
+@media screen and (max-width: 700px) {
+  h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  h3 {
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+
 }

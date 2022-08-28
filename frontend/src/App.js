@@ -6,23 +6,22 @@ import {
 } from 'react-router-dom'
 
 import './stylesheets/App.css';
-import FormView from './components/FormView';
-import QuestionView from './components/QuestionView';
-import Header from './components/Header';
-import QuizView from './components/QuizView';
+
+import Home from './pages/home';
+import PlayQuiz from './pages/playQuiz';
+import AddQuestion from './pages/addQuestion';
 
 
 class App extends Component {
   render() {
     return (
     <div className="App">
-      <Header path />
       <Router>
         <Switch>
-          <Route path="/" exact component={QuestionView} />
-          <Route path="/add" component={FormView} />
-          <Route path="/play" component={QuizView} />
-          <Route component={QuestionView} />
+          <Route path="/" exact component={Home} />
+          <Route path="/add" component={AddQuestion} />
+          <Route path="/play" component={PlayQuiz} />
+          <Route component={Home} />
         </Switch>
       </Router>
     </div>
