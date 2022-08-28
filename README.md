@@ -1,4 +1,4 @@
-# Full Stack Trivia App
+# Trivia App
 
 Udacity is invested in creating bonding experiences for its employees and students. A bunch of team members got the idea to hold trivia on a regular basis and created a web app to manage the trivia app and play the game.
 
@@ -12,9 +12,12 @@ The web application:
 
 ## Screenshots
 
+### Desktop View
 ![A Screenshot of the desktop view](https://github.com/aishat-liasu/trivia-app/blob/main/frontend/public/trivia-desktop-view.png)
 
+### Mobile View
 ![A Screenshot of the mobile view](https://github.com/aishat-liasu/trivia-app/blob/main/frontend/public/trivia-mobile-view.png)
+
 
 ## About the Stack
 
