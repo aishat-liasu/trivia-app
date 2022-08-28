@@ -10,6 +10,12 @@ The web application:
 4. Allows searching of questions based on a text query string.
 5. Enables users play the quiz game, randomizing either all questions or within a specific category.
 
+## Screenshots
+
+![A Screenshot of the desktop view](https://github.com/aishat-liasu/trivia-app/blob/main/frontend/public/trivia-desktop-view.png)
+
+![A Screenshot of the mobile view](https://github.com/aishat-liasu/trivia-app/blob/main/frontend/public/trivia-mobile-view.png)
+
 ## About the Stack
 
 - Backend: Python, Flask
