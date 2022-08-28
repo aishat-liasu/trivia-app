@@ -1,14 +1,38 @@
 :root {
+  --black: #000;
+  --blackish: #393e41;
+  --bluish: #393e41;
+  --greenish: #243010;
+  --white: #fff;
+  --grey: #d9d9d9;
+  --ebony: #646f58;
+  --turquiose: #b8e2c8;
+  --lightgreen: #70a37f;
+  --mintgreen: #9cee91;
+  --dustypink: #aa818b;
+  --taupe: #865b66;
   --darktaupe: #6d4a53;
+  --mimipink: #FCD3DE;
+  --magnolia: #F3EFF5;
+  --purple: #5D599B;
+  --lightpurple: #6c699b;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html,
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Helvetica, sans-serif;
+  background-color: var(--magnolia);
+  color: var(--black);
   font-size: 16px;
+  line-height: 1.5;
+  font-weight: normal;
+  font-family: Inter, 'Segoe UI', monospace;
+}
+
+body {
+  padding: 0;
+  margin: 0 auto;
 }
