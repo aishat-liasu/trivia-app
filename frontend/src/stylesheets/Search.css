@@ -7,17 +7,21 @@
 }
 
 .search-text {
-    border: 1px solid var(--darktaupe);
+    border: 1px solid var(--lightpurple);
     border-radius: 5px 0 0 5px;
-    padding: 10px;
-    font-size: 12px;
+    padding: 10px 15px;
+    font-size: 16px;
 }
 
-input:focus {
+.search-text:focus {
     outline: none;
     border: 2px solid rgb(161, 161, 249);
 }
 
 .search-button {
     border-radius: 0 5px 5px 0;
+}
+
+.search-button img {
+    width: 16px;
 }

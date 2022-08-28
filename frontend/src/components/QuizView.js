@@ -98,21 +98,21 @@ class QuizView extends Component {
   renderPrePlay(){
       return (
           <div className="quiz-play-holder">
-              <div className="choose-header">Choose Category</div>
-              <div className="category-holder">
-                  <div className="play-category" onClick={this.selectCategory}>ALL</div>
+              <h3 className="choose-header">Choose Category</h3>
+              <ul className="category-list">
+                  <li className="category" onClick={this.selectCategory}>ALL</li>
                   {Object.keys(this.state.categories).map(id => {
                   return (
-                    <div
+                    <li
                       key={id}
                       value={id}
-                      className="play-category"
+                      className="category"
                       onClick={() => this.selectCategory({type:this.state.categories[id], id})}>
                       {this.state.categories[id]}
-                    </div>
+                    </li>
                   )
                 })}
-              </div>
+              </ul>
           </div>
       )
   }
@@ -120,8 +120,8 @@ class QuizView extends Component {
   renderFinalScore(){
     return(
       <div className="quiz-play-holder">
-        <div className="final-header"> Your Final Score is {this.state.numCorrect}</div>
-        <div className="play-again button" onClick={this.restartGame}> Play Again? </div>
+        <h3 className="final-header"> You got {this.state.numCorrect}</h3>
+        <button className="play-again button" onClick={this.restartGame}> Play Again? </button>
       </div>
     )
   }
@@ -136,10 +136,10 @@ class QuizView extends Component {
     const evaluate =  this.evaluateAnswer()
     return(
       <div className="quiz-play-holder">
-        <div className="quiz-question">{this.state.currentQuestion.question}</div>
-        <div className={`${evaluate ? 'correct' : 'wrong'}`}>{evaluate ? "You were correct!" : "You were incorrect"}</div>
-        <div className="quiz-answer">{this.state.currentQuestion.answer}</div>
-        <div className="next-question button" onClick={this.getNextQuestion}> Next Question </div>
+        <h3 className="quiz-question">{this.state.currentQuestion.question}</h3>
+        <p className={`${evaluate ? 'correct' : 'wrong'}`}>{evaluate ? "You were correct!" : "You were incorrect"}</p>
+        <p className="quiz-answer">{this.state.currentQuestion.answer}</p>
+        <button className="next-question button" onClick={this.getNextQuestion}> Next Question </button>
       </div>
     )
   }
@@ -151,7 +151,7 @@ class QuizView extends Component {
         ? this.renderCorrectAnswer()
         : (
           <div className="quiz-play-holder">
-            <div className="quiz-question">{this.state.currentQuestion.question}</div>
+            <h3 className="quiz-question">{this.state.currentQuestion.question}</h3>
             <form onSubmit={this.submitGuess}>
               <input type="text" name="guess" onChange={this.handleChange}/>
               <input className="submit-guess button" type="submit" value="Submit Answer" />

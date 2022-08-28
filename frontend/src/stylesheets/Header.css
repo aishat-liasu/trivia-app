@@ -1,7 +1,6 @@
 .header {
     display: flex;
     flex-basis: 100%;
-    width: 100%;
 }
 
 .header h2 {
@@ -23,20 +22,54 @@
 .header-nav ul {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 40%;
     margin: 0;
-    padding: 0;;
+    padding: 0;
 }
 
 .header-nav ul li {
     margin: 0;
-    padding: 15px;
+    padding: 5px;
 }
 
-.header-nav ul li:hover {
+.header-nav ul li a {
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: 400;
+    color: var(--black);
+  }
+
+.header-nav ul li a:hover {
     cursor: pointer;
+    background-color: var(--lightpurple);
+    color: var(--white);
+    border-radius: 5px;
 }
 
-.header ul li:active {
-    border-bottom: 1px solid blue;
+@media screen and (max-width: 900px) {
+
+    .header-nav {
+        margin: 0px 30px;
+    }
+
+}
+
+
+@media screen and (max-width: 700px) {
+
+    .header-nav {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0px 20px;
+    }
+
+    .header-nav h2 {
+        margin-bottom: 10px
+    }
+
+    .header-nav ul {
+        width: 70%;
+    }
 }
