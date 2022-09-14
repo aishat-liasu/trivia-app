@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 
 import '../stylesheets/QuizView.css';
+import Popup from './Popup';
 
 const questionsPerPlay = 5;
 
@@ -16,7 +17,9 @@ class QuizView extends Component {
         numCorrect: 0,
         currentQuestion: {},
         guess: '',
-        forceEnd: false
+        forceEnd: false,
+        openPopup: false,
+        currentMessage: ''
     }
     this.BASE_URL = '/api/v1.0'
   }
@@ -29,7 +32,8 @@ class QuizView extends Component {
         this.setState({ categories: result.categories })
       },
       error: (error) => {
-        alert('Unable to load categories. Please try your request again')
+        this.setState({currentMessage: 'Unable to load categories. Please try your request again'})
+        this.setState({openPopup: true})
       }
     })
   }
@@ -69,7 +73,9 @@ class QuizView extends Component {
         })
       },
       error: (error) => {
-        alert('Unable to load question. Please try your request again')
+        this.setState({currentMessage: 'Unable to load question. Please try your request again'})
+        this.setState({openPopup: true})
+
       }
     })
   }
@@ -97,7 +103,7 @@ class QuizView extends Component {
 
   renderPrePlay(){
       return (
-          <div className="quiz-play-holder">
+          <section className="quiz-play-holder">
               <h3 className="choose-header">Choose Category</h3>
               <ul className="category-list">
                   <li className="category" onClick={this.selectCategory}>ALL</li>
@@ -112,8 +118,10 @@ class QuizView extends Component {
                     </li>
                   )
                 })}
-              </ul>
-          </div>
+          </ul>
+          
+          {this.state.openPopup && <Popup message={this.state.currentMessage} />}
+          </section>
       )
   }
 
@@ -135,12 +143,12 @@ class QuizView extends Component {
   renderCorrectAnswer(){
     const evaluate =  this.evaluateAnswer()
     return(
-      <div className="quiz-play-holder">
+      <section className="quiz-play-holder">
         <h3 className="quiz-question">{this.state.currentQuestion.question}</h3>
         <p className={`${evaluate ? 'correct' : 'wrong'}`}>{evaluate ? "You were correct!" : "You were incorrect"}</p>
         <p className="quiz-answer">{this.state.currentQuestion.answer}</p>
         <button className="next-question button" onClick={this.getNextQuestion}> Next Question </button>
-      </div>
+      </section>
     )
   }
 
@@ -150,13 +158,13 @@ class QuizView extends Component {
       : this.state.showAnswer
         ? this.renderCorrectAnswer()
         : (
-          <div className="quiz-play-holder">
+          <section className="quiz-play-holder">
             <h3 className="quiz-question">{this.state.currentQuestion.question}</h3>
             <form onSubmit={this.submitGuess}>
               <input type="text" name="guess" onChange={this.handleChange}/>
               <input className="submit-guess button" type="submit" value="Submit Answer" />
             </form>
-          </div>
+          </section>
         )
   }
 
