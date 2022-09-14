@@ -9,29 +9,24 @@ class Question extends Component {
     }
   }
 
-  flipVisibility() {
-    this.setState({visibleAnswer: !this.state.visibleAnswer});
-  }
+
 
   render() {
     const { question, answer, category, difficulty } = this.props;
     return (
-      <div className="question-holder">
-        <div className="question">{question}</div>
+      <article className="question-holder">
+        <h4 className="question">{question}</h4>
         <div className="question-status">
           <img className="category" src={`${category.toLowerCase()}.svg`} alt={ category.toLowerCase()} />
-          <div className="difficulty">Difficulty: {difficulty}</div>
-          <img src="delete.png" className="delete" onClick={() => this.props.questionAction('DELETE')}  alt='Delete icon'/>
-          
+          <span className="difficulty">Difficulty: {difficulty}</span>
+          <img src="delete.png" className="delete" onClick={() => this.props.questionAction('DELETE')}  alt='Delete icon'/>   
         </div>
-        <button className="show-answer button"
-            onClick={() => this.flipVisibility()}>
-            {this.state.visibleAnswer ? 'Hide Answer' : 'Show Answer'}
-        </button>
-        <p className="answer-holder">
-          <span style={{"visibility": this.state.visibleAnswer ? 'visible' : 'hidden'}}>{answer}</span>
-        </p>
-      </div>
+
+        <details className='answer-details'>
+          <summary>Answer</summary>
+          <p>{answer}</p>
+        </details>
+      </article>
     );
   }
 }
