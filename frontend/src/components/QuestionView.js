@@ -4,6 +4,7 @@ import '../stylesheets/App.css';
 import Question from './Question';
 import Search from './Search';
 import $ from 'jquery';
+import Popup from './Popup';
 
 class QuestionView extends Component {
   constructor(props){
@@ -14,6 +15,8 @@ class QuestionView extends Component {
       totalQuestions: 0,
       categories: {},
       currentCategory: null,
+      openPopup: false,
+      currentMessage: ''
     }
     this.BASE_URL = '/api/v1.0'
   }
@@ -35,7 +38,8 @@ class QuestionView extends Component {
         })
       },
       error: (error) => {
-        alert('Unable to load questions. Please try your request again')
+        this.setState({currentMessage: 'Unable to load questions. Please try your request again'})
+        this.setState({openPopup: true})
       }
     })
   }
@@ -70,7 +74,8 @@ class QuestionView extends Component {
         })
       },
       error: (error) => {
-        alert('Unable to load questions. Please try your request again')
+        this.setState({currentMessage: 'Unable to load questions. Please try your request again'})
+        this.setState({openPopup: true})
       }
     })
   }
@@ -94,7 +99,8 @@ class QuestionView extends Component {
         })
       },
       error: (error) => {
-        alert('Unable to load questions. Please try your request again')
+        this.setState({currentMessage: 'Unable to load questions. Please try your request again'})
+        this.setState({openPopup: true})
       }
     })
   }
@@ -109,7 +115,8 @@ class QuestionView extends Component {
             this.getQuestions();
           },
           error: (error) => {
-            alert('Unable to load questions. Please try your request again')
+            this.setState({currentMessage: 'Unable to delete question. Please try your request again'})
+            this.setState({openPopup: true})
           }
         })
       }
@@ -119,8 +126,7 @@ class QuestionView extends Component {
   render() {
     return (
       <div className="question-view">
-        <div className="sidebar">
-          {/* onClick={() => { this.getQuestions() }} */}
+        <section className="sidebar">
           <Search submitSearch={this.submitSearch}/>
           <h3>Filter questions by categories</h3>
           <ul className='categories-list'>
@@ -131,9 +137,9 @@ class QuestionView extends Component {
               </li>
             ))}
           </ul>
-       
-        </div>
-        <div className="questions-list">
+        </section>
+
+        <section className="questions-list">
           <h3>Questions</h3>
           {this.state.questions.map((q, ind) => (
             <Question
@@ -148,7 +154,9 @@ class QuestionView extends Component {
           <div className="pagination-menu">
             {this.createPagination()}
           </div>
-        </div>
+        </section>
+
+        {this.state.openPopup && <Popup message={this.state.currentMessage} />}
 
       </div>
     );
