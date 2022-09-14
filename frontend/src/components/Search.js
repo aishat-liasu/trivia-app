@@ -9,8 +9,6 @@ class Search extends Component {
   getInfo = (event) => {
     event.preventDefault();
     this.props.submitSearch(this.state.query)
-    console.log(event)
-    //event.target.reset()
   }
 
   handleInputChange = () => {
@@ -30,7 +28,6 @@ class Search extends Component {
           
         />
         <button className='button search-button' onClick={this.getInfo}><img src="search-icon.png" alt="Search Icon" /></button>
-{/*         <input type="submit" value="Search" className="button search-button"/> */}
       </form>
     )
   }
