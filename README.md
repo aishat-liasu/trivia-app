@@ -13,16 +13,16 @@ The web application:
 ## Screenshots
 
 ### Desktop View
-![A Screenshot of the desktop view](https://github.com/aishat-liasu/trivia-app/blob/main/frontend/public/trivia-desktop-view.png)
+![A Screenshot of the desktop view](https://github.com/aishat-liasu/trivia-app/blob/main/frontend/public/01_trivia_project_home_page.png)
 
 ### Mobile View
-![A Screenshot of the mobile view](https://github.com/aishat-liasu/trivia-app/blob/main/frontend/public/trivia-mobile-view.png)
+![A Screenshot of the mobile view](https://github.com/aishat-liasu/trivia-app/blob/main/frontend/public/01_trivia_project_home_page_mobile.png)
 
 
 ## About the Stack
 
-- Backend: Python, Flask
-- Frontend: React (Class-based Components), jQuery
+- Backend: Python, Flask, PostgreSQL
+- Frontend: React (Class-based Components), jQuery, CSS
 
 ### Pre-requisites and Local Development 
 Developers using this project should already have Python3 (Preferably 3.7 or 3.8), pip and node installed on their local machines.
