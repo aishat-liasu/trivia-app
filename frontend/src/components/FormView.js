@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 
 import '../stylesheets/FormView.css';
+import Popup from './Popup';
 
 class FormView extends Component {
   constructor(props){
@@ -11,7 +12,9 @@ class FormView extends Component {
       answer: "",
       difficulty: 1,
       category: 1,
-      categories: {}
+      categories: {},
+      openPopup: false,
+      currentMessage: ''
     }
     this.BASE_URL = '/api/v1.0'
   }
@@ -24,7 +27,8 @@ class FormView extends Component {
         this.setState({ categories: result.categories })
       },
       error: (error) => {
-        alert('Unable to load categories. Please try your request again')
+        this.setState({currentMessage: 'Unable to load categories. Please try to reload the page'})
+        this.setState({openPopup: true})
       }
     })
   }
@@ -33,7 +37,7 @@ class FormView extends Component {
   submitQuestion = (event) => {
     event.preventDefault();
     $.ajax({
-      url: `${this.BASE_URL}/questions`, //TODO: update request URL
+      url: `${this.BASE_URL}/questions`, 
       type: "POST",
       dataType: 'json',
       contentType: 'application/json',
@@ -51,7 +55,8 @@ class FormView extends Component {
         document.getElementById("add-question-form").reset();
       },
       error: (error) => {
-        alert('Unable to add question. Please try your request again')
+        this.setState({currentMessage: 'Unable to add question. Please try your request again'})
+        this.setState({openPopup: true})
       }
     })
   }
@@ -95,6 +100,8 @@ class FormView extends Component {
           </label>
           <input type="submit" className="button" value="Submit" />
         </form>
+        
+        {this.state.openPopup && <Popup message={this.state.currentMessage} />}
       </section>
     );
   }
