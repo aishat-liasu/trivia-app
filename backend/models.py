@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 
 database_name = "trivia-app-db"
-database_path = "postgres://default:ZXdi9x1OfCwV@ep-winter-hat-612012.eu-central-1.postgres.vercel-storage.com:5432/verceldb"
+database_path = os.environ.get('DATABASE_URL')
 
 db = SQLAlchemy()
 
