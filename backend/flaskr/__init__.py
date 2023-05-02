@@ -301,4 +301,8 @@ def create_app(test_config=None):
   def bad_request(error):
     return jsonify({"success": False, "error": 500, "message": "Internal Server Error"}), 500
   
+  if __name__ == "__main__":
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=8080)
+  
   return app
