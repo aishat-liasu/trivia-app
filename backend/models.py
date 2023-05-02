@@ -3,10 +3,8 @@ from sqlalchemy import Column, String, Integer, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-database_name = "trivia_db"
-database_path = "postgresql://{}:{}@{}/{}".format(
-    "postgres", "password", "localhost:5432", database_name
-)
+database_name = "trivia-app-db"
+database_path = "postgres://default:ZXdi9x1OfCwV@ep-winter-hat-612012.eu-central-1.postgres.vercel-storage.com:5432/verceldb"
 
 db = SQLAlchemy()
 
