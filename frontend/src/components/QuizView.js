@@ -21,7 +21,7 @@ class QuizView extends Component {
         openPopup: false,
         currentMessage: ''
     }
-    this.BASE_URL = '/api/v1.0'
+    this.BASE_URL = process.env.REACT_APP_API_URL + '/api/v1.0'
   }
 
   componentDidMount(){
