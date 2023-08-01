@@ -3,7 +3,7 @@ from sqlalchemy import Column, String, Integer, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-database_name = "trivia-app-db"
+database_name = "trivia_app_db_tx3f"
 database_path = os.environ.get('DATABASE_URL')
 
 db = SQLAlchemy()
